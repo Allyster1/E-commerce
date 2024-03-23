@@ -1,0 +1,23 @@
+/* Form */
+
+.form {
+  width: 20rem;
+  max-width: 90%;
+  margin: auto;
+}
+
+.form__control {
+  margin: 1rem 0;
+}
+
+.form__control label,
+.form__control input {
+  display: block;
+  width: 100%;
+}
+
+.form__control input {
+  border: 1px solid #b9bb35;
+  font: inherit;
+  border-radius: 2px;
+}
