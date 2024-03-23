@@ -8,5 +8,12 @@
     "start": "nodemon app.js"
   },
   "author": "Slavi Ovardov",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "express": "^4.19.1",
+    "express-handlebars": "^7.1.2",
+    "nodemon": "^3.1.0",
+    "pug": "^3.0.2"
+  }
 }

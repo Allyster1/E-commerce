@@ -6,7 +6,7 @@ const app = express();
 const path = require("path");
 
 // Routes
-const adminRoutes = require("./routes/admin.js");
+const adminData = require("./routes/admin.js");
 const shopRoutes = require("./routes/shop.js");
 
 // Parse Incoming Data
@@ -16,7 +16,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 
 // Use Routes
-app.use("/admin", adminRoutes);
+app.use("/admin", adminData.routes);
 app.use(shopRoutes);
 
 // Display 404

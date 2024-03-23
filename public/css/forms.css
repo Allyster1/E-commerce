@@ -14,10 +14,15 @@
 .form__control input {
   display: block;
   width: 100%;
+  margin-bottom: 0.25rem;
 }
 
 .form__control input {
-  border: 1px solid #b9bb35;
+  border: 1px solid #a1a1a1;
   font: inherit;
   border-radius: 2px;
+}
+
+.form__control input:focus {
+  outline-color: #00695c;
 }
