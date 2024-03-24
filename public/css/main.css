@@ -78,8 +78,9 @@ body {
   color: #ffeb3b;
 }
 
-/*  */
-/* .grid {
+/* Card Details */
+
+.cards-grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -95,17 +96,7 @@ body {
   padding: 1rem;
 }
 
-.card__header h1,
-.card__content h1,
-.card__content h2,
-.card__content p {
-  margin: 0;
-}
-
-.card__image {
-  width: 100%;
-}
-
+.card__image,
 .card__image img {
   width: 100%;
 }
@@ -118,4 +109,4 @@ body {
 .card__actions button,
 .card__actions a {
   margin: 0 0.25rem;
-}  */
+}

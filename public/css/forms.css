@@ -1,11 +1,4 @@
 /* Form */
-
-.form {
-  width: 20rem;
-  max-width: 90%;
-  margin: auto;
-}
-
 .form__control {
   margin: 1rem 0;
 }

@@ -9,6 +9,10 @@ const path = require("path");
 const adminData = require("./routes/admin.js");
 const shopRoutes = require("./routes/shop.js");
 
+// Allow usage of  templates
+app.set("view engine", "pug");
+app.set("views", "views");
+
 // Parse Incoming Data
 app.use(express.urlencoded({ extended: true }));
 
