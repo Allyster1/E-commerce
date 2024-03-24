@@ -1,5 +1,7 @@
 // Dependencies
 const express = require("express");
+const expressHbs = require("express-handlebars");
+
 const app = express();
 
 // Modules
@@ -10,7 +12,15 @@ const adminData = require("./routes/admin.js");
 const shopRoutes = require("./routes/shop.js");
 
 // Allow usage of  templates
-app.set("view engine", "pug");
+app.engine(
+  ".hbs",
+  expressHbs.engine({
+    extname: "hbs",
+    defaultLayout: "main-layout",
+    layoutsDir: "views/layouts/",
+  })
+);
+app.set("view engine", "hbs");
 app.set("views", "views");
 
 // Parse Incoming Data
@@ -25,7 +35,7 @@ app.use(shopRoutes);
 
 // Display 404
 app.use((req, res, next) => {
-  res.status(404).sendFile(path.join(__dirname, "views", "404.html"));
+  res.status(404).render("404", { pageTitle: "Page Not Found" });
 });
 
 // Adjust localhost if necessary

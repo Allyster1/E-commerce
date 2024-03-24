@@ -1,0 +1,17 @@
+<!doctype html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet", href="/css/main.css")
+        title #{pageTitle}
+        block styles
+    body 
+        header.header 
+            nav.header__nav 
+                ul.header__item-list 
+                    li.header__item 
+                        a(href="/", class=(path === "/" ? 'active' : '' )) Shop 
+                    li.header__item 
+                        a(href="/admin/add-product", class=(path === "/admin/add-product" ? 'active' : '')) Add Product
+        block content
