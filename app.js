@@ -7,7 +7,7 @@ const app = express();
 const path = require("path");
 
 // Routes
-const adminData = require("./routes/admin.js");
+const adminRoutes = require("./routes/admin.js");
 const shopRoutes = require("./routes/shop.js");
 
 // Allow usage of  templates
@@ -21,7 +21,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 
 // Use Routes
-app.use("/admin", adminData.routes);
+app.use("/admin", adminRoutes);
 app.use(shopRoutes);
 
 // Display 404
