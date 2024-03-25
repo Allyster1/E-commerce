@@ -13,7 +13,7 @@ const shopRoutes = require("./routes/shop.js");
 
 // Allow usage of  templates
 app.engine(
-  ".hbs",
+  "hbs",
   expressHbs.engine({
     extname: "hbs",
     defaultLayout: "main-layout",
