@@ -1,6 +1,5 @@
 // Dependencies
 const express = require("express");
-const expressHbs = require("express-handlebars");
 
 const app = express();
 
@@ -12,15 +11,7 @@ const adminData = require("./routes/admin.js");
 const shopRoutes = require("./routes/shop.js");
 
 // Allow usage of  templates
-app.engine(
-  "hbs",
-  expressHbs.engine({
-    extname: "hbs",
-    defaultLayout: "main-layout",
-    layoutsDir: "views/layouts/",
-  })
-);
-app.set("view engine", "hbs");
+app.set("view engine", "ejs");
 app.set("views", "views");
 
 // Parse Incoming Data
