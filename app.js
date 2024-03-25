@@ -1,6 +1,5 @@
 // Dependencies
 const express = require("express");
-
 const app = express();
 
 // Modules
@@ -24,12 +23,11 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/admin", adminRoutes);
 app.use(shopRoutes);
 
+// Controller
+const errorController = require("./controllers/errorPage");
+
 // Display 404
-app.use((req, res, next) => {
-  res
-    .status(404)
-    .render("404", { path: req.originalUrl, pageTitle: "Page Not Found" });
-});
+app.use(errorController.get404);
 
 // Adjust localhost if necessary
 app.listen(5500);
