@@ -5,18 +5,21 @@
 }
 
 .form__control label,
-.form__control input {
+.form__control input,
+.form__control textarea {
   display: block;
   width: 100%;
   margin-bottom: 0.25rem;
 }
 
-.form__control input {
+.form__control input,
+.form__control textarea {
   border: 1px solid #a1a1a1;
   font: inherit;
   border-radius: 2px;
 }
 
-.form__control input:focus {
+.form__control input:focus,
+.form__control textarea:focus {
   outline-color: #00695c;
 }

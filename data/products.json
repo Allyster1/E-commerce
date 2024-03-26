@@ -1,1 +1,8 @@
-[{"title":"book"},{"title":"Another Book"},{"title":"Third Book"},{"title":"A Strange Book"}]
+[
+  {
+    "title": "Milk And Honey",
+    "imageUrl": "https://images.unsplash.com/photo-1544947950-fa07a98d237f?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "desc": "About the experience of violence, abuse, love, loss, and femininity. The book is divided into four chapters, and each chapter serves a different purpose. Deals with a different pain.",
+    "price": "30.99"
+  }
+]

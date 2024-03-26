@@ -20,8 +20,11 @@ const getProductsFromFIle = (cb) => {
 };
 
 module.exports = class Product {
-  constructor(title) {
+  constructor(title, imageUrl, desc, price) {
     this.title = title;
+    this.imageUrl = imageUrl;
+    this.desc = desc;
+    this.price = price;
   }
 
   //   Method to add the product into the json file
