@@ -24,7 +24,7 @@ app.use("/admin", adminRoutes);
 app.use(shopRoutes);
 
 // Controller
-const errorController = require("./controllers/errorPage");
+const errorController = require("./controllers/error");
 
 // Display 404
 app.use(errorController.get404);
