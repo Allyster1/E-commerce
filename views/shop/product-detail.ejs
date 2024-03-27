@@ -3,18 +3,22 @@
 
     <body>
         <%- include('../includes/navigation.ejs') %>
-
+            <!-- class centered -->
             <section class="section section-details">
                 <h1>
                     <%= product.title %>
                 </h1>
+
                 <hr>
+
                 <div>
                     <img src="<%= product.imageUrl %>" alt="<%= product.title %>">
                 </div>
+
                 <h2>
                     $<%= product.price %>
                 </h2>
+
                 <p>
                     <%= product.desc %>
                 </p>

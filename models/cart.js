@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 
-//
+//process.mainModule.filename
 const p = path.join(path.dirname(require.main.filename), "data", "cart.json");
 
 module.exports = class Cart {
@@ -43,6 +43,10 @@ module.exports = class Cart {
 
       const updCart = { ...JSON.parse(fileContent) };
       const product = updCart.products.findIndex((prod) => prod.id === id);
+
+      if (!product) {
+        return;
+      }
       const productQty = product.qty;
 
       updCart.products = updCart.products.filter((prod) => prod.id !== id);
@@ -51,6 +55,17 @@ module.exports = class Cart {
       fs.writeFile(p, JSON.stringify(updCart), (err) => {
         console.log(err);
       });
+    });
+  }
+
+  static getCart(cb) {
+    fs.readFile(p, (err, fileContent) => {
+      const cart = JSON.parse(fileContent);
+      if (err) {
+        cb(null);
+      } else {
+        cb(cart);
+      }
     });
   }
 };

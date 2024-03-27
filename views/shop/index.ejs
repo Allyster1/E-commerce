@@ -21,7 +21,8 @@
                                 </div>
 
                                 <div class="card__content">
-                                    <h2 class="product__price">$<%= product.price %>
+                                    <h2 class="product__price">$
+                                        <%= product.price %>
                                     </h2>
 
                                     <p class="product__desc">
@@ -35,7 +36,7 @@
                             </article>
                             <% } %>
                     </div>
-                    <%} else { %>
+                    <% } else { %>
                         <h1>No Products Found!</h1>
                         <% } %>
             </section>

@@ -5,13 +5,16 @@ const app = express();
 // Modules
 const path = require("path");
 
-// Routes
-const adminRoutes = require("./routes/admin.js");
-const shopRoutes = require("./routes/shop.js");
+// Controller
+const errorController = require("./controllers/error");
 
 // Allow usage of  templates
 app.set("view engine", "ejs");
 app.set("views", "views");
+
+// Routes
+const adminRoutes = require("./routes/admin");
+const shopRoutes = require("./routes/shop");
 
 // Parse Incoming Data
 app.use(express.urlencoded({ extended: true }));
@@ -22,9 +25,6 @@ app.use(express.static(path.join(__dirname, "public")));
 // Use Routes
 app.use("/admin", adminRoutes);
 app.use(shopRoutes);
-
-// Controller
-const errorController = require("./controllers/error");
 
 // Display 404
 app.use(errorController.get404);
