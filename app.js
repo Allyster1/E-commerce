@@ -5,15 +5,17 @@ const app = express();
 // Database
 const sequelize = require("./utility/db");
 
+// Controller
+const errorController = require("./controllers/error");
+
 // Models
 const Product = require("./models/product");
 const User = require("./models/user");
+const Cart = require("./models/cart");
+const CartItem = require("./models/cart-item");
 
 // Modules
 const path = require("path");
-
-// Controller
-const errorController = require("./controllers/error");
 
 // Allow usage of  templates
 app.set("view engine", "ejs");
@@ -54,9 +56,18 @@ Product.belongsTo(User, {
   onDelete: "CASCADE",
 });
 User.hasMany(Product);
+User.hasOne(Cart);
+Cart.belongsTo(User);
+Cart.belongsToMany(Product, {
+  through: CartItem,
+});
+Product.belongsToMany(Cart, {
+  through: CartItem,
+});
 
 // Sync models to create the database tables
 sequelize
+  // .sync({ force: true })
   .sync()
   .then((res) => {
     return User.findByPk(1);
@@ -68,7 +79,9 @@ sequelize
     return user;
   })
   .then((user) => {
-    // console.log(user);
+    user.createCart();
+  })
+  .then((cart) => {
     // Adjust localhost if necessary
     app.listen(5500);
   })
