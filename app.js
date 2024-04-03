@@ -29,6 +29,18 @@ app.use(express.urlencoded({ extended: true }));
 // Forward access to the public folder
 app.use(express.static(path.join(__dirname, "public")));
 
+// Dummy User Middleware
+app.use((req, res, next) => {
+  User.findByPk(1)
+    .then((user) => {
+      req.user = user;
+      next();
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
 // Use Routes
 app.use("/admin", adminRoutes);
 app.use(shopRoutes);
@@ -45,8 +57,18 @@ User.hasMany(Product);
 
 // Sync models to create the database tables
 sequelize
-  .sync({ force: true })
+  .sync()
   .then((res) => {
+    return User.findByPk(1);
+  })
+  .then((user) => {
+    if (!user) {
+      return User.create({ name: "Max", email: "test@test.com" });
+    }
+    return user;
+  })
+  .then((user) => {
+    // console.log(user);
     // Adjust localhost if necessary
     app.listen(5500);
   })
